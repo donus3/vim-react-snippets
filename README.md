@@ -312,7 +312,7 @@ export default $CFN
 ```jsx
 import { forwardRef } from "react"
 
-const $CFN = forwardRef(function $CFN(props, ref) {
+const $CFN = forwardRef((props, ref) => {
   return <div ref={ref}></div>
 })
 
@@ -449,7 +449,7 @@ useEffect(() => {
 useEffect(() => {
   let cancelled = false
 
-  ;(async function $DOWORK() {
+  ;(async () => {
     // async work here
     $TABSTOP
     if (cancelled) {
@@ -486,7 +486,7 @@ return useContext($TABSTOP)
 `useRed` ->
 
 ```js
-const [$STATE, $DISPATCH] = useReducer(function reducer(state, action) {
+const [$STATE, $DISPATCH] = useReducer((state, action) => {
   return state
 }, $NULL)
 ```
@@ -691,7 +691,7 @@ export default class $CFN extends Component {
 }
 ```
 
-#### React Class Export with Prop interface
+#### React Class Export with Prop Interface
 
 `rcep` ->
 
@@ -805,11 +805,11 @@ Note: These are different than the Javascript versions on purpose and use the
 `fce` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { ReactElement } from "react"
 
-export interface $CFN_Props {}
+export type $CFN_Props = {}
 
-export function $CFN(props: $CFN_Props): ReactElement {
+export const $CFN(props: $CFN_Props): ReactElement => {
   return <></>
 }
 ```
@@ -819,13 +819,15 @@ export function $CFN(props: $CFN_Props): ReactElement {
 `fcde` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { ReactElement } from "react"
 
-export interface $CFN_Props {}
+export type $CFN_Props = {}
 
-export default function $CFN(props: $CFN_Props): ReactElement {
+const $CFN => (props: $CFN_Props): ReactElement => {
   return <></>
 }
+
+export default $CFN;
 ```
 
 #### Simple Function Component Export
@@ -833,9 +835,9 @@ export default function $CFN(props: $CFN_Props): ReactElement {
 `sfce` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { ReactElement } from "react"
 
-export function $CFN(): ReactElement {
+export const $CFN = (): ReactElement => {
   return <></>
 }
 ```
@@ -845,11 +847,13 @@ export function $CFN(): ReactElement {
 `sfcde` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { ReactElement } from "react"
 
-export default function $CFN(): ReactElement {
+function $CFN = (): ReactElement => {
   return <></>
 }
+
+export default $CFN;
 ```
 
 #### Forwarded Function Component Export
@@ -859,14 +863,14 @@ export default function $CFN(): ReactElement {
 ```tsx
 import { forwardRef } from "react"
 
-export interface $CFNProps {
+export type $CFNProps = {
   $TABSTOP
 }
 
-export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
+export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>((
   props,
   ref
-) {
+) => {
   return <div ref={ref}></div>
 })
 ```
@@ -878,14 +882,14 @@ export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
 ```tsx
 import { forwardRef } from "react"
 
-export interface $CFNProps {
+export type $CFNProps = {
   $TABSTOP
 }
 
-export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
+export default forwardRef<HTML$TABSTOPElement, $CFN_Props>((
   props,
   ref
-) {
+) => {
   return <div ref={ref}></div>
 })
 ```
@@ -1237,7 +1241,7 @@ useEffect(() => {
 useEffect(() => {
   let cancelled = false
 
-  ;(async function $DOWORK(): Promise<$VOID> {
+  ;(async(): Promise<$VOID> => {
     // async work here
     $TABSTOP
     if (cancelled) {
@@ -1274,10 +1278,10 @@ return useContext$TABSTOP($TABSTOP)
 `useRed` ->
 
 ```ts
-const [$STATE, $DISPATCH] = useReducer(function reducer(
+const [$STATE, $DISPATCH] = useReducer((
   state: $TABSTOP,
   action: $TABSTOP
-): $TABSTOP {
+): $TABSTOP => {
   return state
 },
 $NULL)
